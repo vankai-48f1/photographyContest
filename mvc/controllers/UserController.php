@@ -61,7 +61,7 @@ class UserController extends Controller
         $_SESSION['usersName'] = $user->username;
         $_SESSION['usersEmail'] = $user->email;
 
-        if ($this->issetUserAdmin()) {
+        if ($this->isAdmin()) {
             redirect("/admin/dashboard");
         } else {
             popupSuccess("modal_success", "Logged in successfully.");

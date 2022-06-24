@@ -39,19 +39,24 @@ class Controller
         $this->render('error');
     }
 
+    public function isAdmin()
+    {
+        if (isset($_SESSION['usersId']) && (int)$_SESSION['usersId'] === 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function issetUserAdmin()
     {
-        if (!$this->issetUser()) {
-            $data = ['login'];
-            $this->render('pages/login', $data);
-        } else {
-
-            if ($_SESSION['usersId'] != 1) {
-                // $data = ['home'];
-                // $this->render('pages/index', $data);
-                return false;
+        if (isset($_SESSION['usersId'])) {
+            if ((int)$_SESSION['usersId'] !== 1) {
+                redirect("/");
             }
-            return true;
+        } else {
+            $data = ['login'];
+            redirect("/page/login");
         }
     }
 
