@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="about-us__ct-item about-us__ct-item--bottom">
-                <div class="about-us__col-1">THEMEv</div>
+                <div class="about-us__col-1">THEME</div>
                 <div class="about-us__col-2 about-us__col-2--thin"></div>
                 <div class="about-us__col-3 about-us__col-3--bold color-white">
                     Nghệ thuật sân khấu dân gian đến từ các quốc gia phương Đông
@@ -87,14 +87,14 @@
         <div class="judges__content">
             <div class="judges__content-title font-prm-ultrabold-24 color-orange">CÁC GIÁM KHẢO VÒNG SƠ KHẢO</div>
             <ul class="judges__list font-prm-ultrabold-24 color-orange">
-                <li>+Nam Thi</li>
-                <li>+Tuyết Lan</li>
-                <li>+Link Luu</li>
-                <li>+Trang Phạm</li>
-                <li>+Hậu Lê</li>
-                <li>+Xi Quan Le</li>
-                <li>+Mạnh Bi</li>
-                <li>+Kelbin Lei</li>
+                <li>+ Nam Thi</li>
+                <li>+ Tuyết Lan</li>
+                <li>+ Linh Lưu</li>
+                <li>+ Trang Phạm</li>
+                <li>+ Hậu Lê</li>
+                <li>+ Xi Quan Lê</li>
+                <li>+ Mạnh Bi</li>
+                <li>+ Kelbin Lei</li>
             </ul>
         </div>
     </div>
