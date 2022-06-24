@@ -8,6 +8,7 @@ class App
     function __construct()
     {
         $arr = $this->UrlProcess();
+        
         // Controller
         if (file_exists("./mvc/controllers/" .  ucfirst($arr[0]) . "Controller.php")) {
             $this->controller =  ucfirst($arr[0]) . "Controller";

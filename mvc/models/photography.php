@@ -161,9 +161,9 @@ class Photography
     public function getAll()
     {
         // $this->db->query('SELECT * FROM photography ORDER BY id DESC');
-        $this->db->query('SELECT *, GROUP_CONCAT(images.name SEPARATOR ",,") AS detail_image FROM images 
-        LEFT JOIN photography ON images.photography_id = photography.id 
-        GROUP BY images.photography_id 
+        $this->db->query('SELECT *,(SELECT COUNT(photography_id) FROM submission WHERE submission.photography_id = photography.id )AS vote,
+        (SELECT GROUP_CONCAT(images.name SEPARATOR ",,")FROM images WHERE images.photography_id = photography.id) AS detail_image 
+        FROM photography
         ORDER BY photography.id DESC');
 
         $photography = $this->db->resultSet();
@@ -176,7 +176,9 @@ class Photography
      */
     public function getItemPhotography($id)
     {
-        $this->db->query('SELECT * FROM photography WHERE id=:id');
+        $this->db->query('SELECT *,(SELECT COUNT(:id) FROM submission WHERE submission.photography_id = :id )AS vote,
+        (SELECT GROUP_CONCAT(images.name SEPARATOR ",,")FROM images WHERE images.photography_id = :id) AS detail_image 
+        FROM photography WHERE id =:id');
         $this->db->bind(':id', $id);
         $item = $this->db->single();
 
@@ -246,7 +248,7 @@ class Photography
         FROM photography ORDER BY (SELECT COUNT(photography_id) FROM submission WHERE submission.photography_id = photography.id ) DESC');
 
         $photography = $this->db->resultSet();
-        
+
         return $photography;
     }
 
@@ -257,7 +259,7 @@ class Photography
         FROM photography ORDER BY photography.id DESC');
 
         $photography = $this->db->resultSet();
-        
+
         return $photography;
     }
 }

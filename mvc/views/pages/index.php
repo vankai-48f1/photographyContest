@@ -144,13 +144,12 @@
             if (array_key_exists('photography', $data)) {
                 $photographyAll = $data['photography'];
             ?>
-                <div class="submission__list">
+                <div class="submission__list submission__list-home">
                     <?php
                     $i = 0;
                     foreach ($photographyAll as $photography) {
                         $i++;
                         if ($i > 6) break;
-                        // var_dump($photography->vote);die;
                     ?>
                         <div class="submission__item">
                             <div class="submission__item-thumb">
@@ -160,15 +159,13 @@
                                 <div class="submission__item-name"><?php echo $photography->image_name ?></div>
                                 <div class="submission__item-applicant"><?php echo $photography->name ?></div>
                                 <div class="submission__item-vote-num"><?php echo $photography->vote ?> Votes</div>
-                                <form action="/user/vote/<?php echo $photography->id ?>" method="POST">
-                                    <button class="submission__item-btn-vote">Vote!</button>
-                                </form>
+                                <a href="page/submissionDetail/<?php echo $photography->id ?>" class="submission__item-link"><span>More</span><img src="<?php echo DIRECTORY_SEPARATOR . MEDIA_PATH ?>arrow-right-orange.png" alt=""></a>
                             </div>
                         </div>
                     <?php } ?>
                 </div>
                 <div class="submission__view-all">
-                    <a class="submission__view-all-btn" href="#">VIEW ALL</a>
+                    <a class="submission__view-all-btn" href="page/submission">VIEW ALL</a>
                 </div>
             <?php } ?>
         </div>
