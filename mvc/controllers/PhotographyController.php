@@ -21,6 +21,7 @@ class PhotographyController extends Controller
             'detail_image'       => $_FILES['detail_image'],
             'image_name'         => trim($_POST['image_name']),
             'photography_name'   => trim($_POST['photography_name']),
+            'credit_team'        => trim($_POST['credit_team']),
             'description'        => trim($_POST['description'])
         ];
 

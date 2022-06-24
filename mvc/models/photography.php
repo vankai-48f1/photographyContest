@@ -15,10 +15,11 @@ class Photography
      */
     public function store($data)
     {
-        $this->db->query('INSERT INTO photography (name, image_name, description, upload_date) VALUE (:name, :image_name, :description, :upload_date)');
+        $this->db->query('INSERT INTO photography (name, image_name, credit_team, description, upload_date) VALUE (:name, :image_name, :credit_team, :description, :upload_date)');
         // $this->db->bind(':avatar', $data['avatar']);
         $this->db->bind(':name', $data['photography_name']);
         $this->db->bind(':image_name', $data['image_name']);
+        $this->db->bind(':credit_team', $data['credit_team']);
         $this->db->bind(':description', $data['description']);
         $this->db->bind(':upload_date', date('Y-m-d H:i:s', time()));
 
@@ -29,7 +30,7 @@ class Photography
             $avatar = (string)$last_id . '_' . $data['avatar']['name'][0];
 
             $this->db->query('UPDATE photography SET avatar = :avatar WHERE id = :last_id');
-            // var_dump($this->filePath($avatar));die;
+
             if (move_uploaded_file(
                 $data['avatar']['tmp_name'][0],
                 $this->filePath($avatar, 'avatar')

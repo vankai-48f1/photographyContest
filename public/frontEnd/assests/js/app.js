@@ -48,6 +48,7 @@
         asNavFor: '.submission-detail__slider-single',
         dots: false,
         arrows: true,
+        infinite: false,
         focusOnSelect: true,
         responsive: [{
             breakpoint: 1024,

@@ -87,6 +87,7 @@
                         <div class="col-md-7 col-xs-12">
                             <div class="submission-detail__credit-ct">
                                 <div class="submission-detail__credit-title">Credit Team</div>
+                                <div class="submission-detail__credit-title"><?php echo $photography->credit_team ?></div>
                             </div>
                         </div>
                         <div class="col-md-5 col-xs-12">

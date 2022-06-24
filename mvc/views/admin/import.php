@@ -21,15 +21,19 @@
                                 <input type="file" multiple="multiple" name="detail_image[]" class="form-control btn text-left mb-2" require>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-2">
-                            <label for="" class="form-label">Tên bộ ảnh</label>
-                                <input type="text" name="image_name" class="form-control btn text-left mb-2" require >
+                                <label for="" class="form-label">Tên bộ ảnh</label>
+                                <input type="text" name="image_name" class="form-control btn text-left mb-2" require>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-2">
-                            <label for="" class="form-label">Tên thí sinh</label>
+                                <label for="" class="form-label">Tên thí sinh</label>
                                 <input type="text" name="photography_name" class="form-control btn text-left mb-2" require>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-2">
-                            <label for="" class="form-label">Mô tả ngắn</label>
+                                <label for="" class="form-label">Credit team</label>
+                                <textarea class="form-control" name="credit_team" cols="30" rows="3"></textarea>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-2">
+                                <label for="" class="form-label">Mô tả ngắn</label>
                                 <textarea class="form-control" name="description" cols="30" rows="3"></textarea>
                             </div>
 

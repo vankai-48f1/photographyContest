@@ -509,9 +509,15 @@ h6 {
   position: relative;
   padding-top: 71%;
   width: 100%;
+  border: 2px solid transparent;
 }
 
-.submission-detail__slider-single-img img,
+.submission-detail__slider-single-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .submission-detail__slider-nav-img img {
   position: absolute;
   top: 0;
@@ -530,6 +536,11 @@ h6 {
 /* the parent */
 .submission-detail__slider-nav .slick-list {
   margin: 0 -7px;
+}
+
+.submission-detail__slider-nav-item.slick-current 
+.submission-detail__slider-nav-img {
+    border-color: #e77019;
 }
 
 .submission-detail__slider-nav .slick-prev::before,
