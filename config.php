@@ -1,0 +1,30 @@
+<?php
+
+define('DOMAIN_PATH', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST']);
+define('NUMBER_TOP_POST_SHOW', 10);
+define('ROUTE_ADMIN_DASHBOARD', 'admin/dashboard');
+define('ROUTE_ADMIN_IMPORT', 'admin/import');
+
+define('ROUTE_USER_TICKET_EDIT', 'admin/userTicketEdit');
+define('ROUTE_USER_TICKET_VIEW', 'admin/ticket/user/edit');
+define('ROUTE_USER_TICKET_UPDATE', 'ticket/updateUserTicket');
+define('ROUTE_USER_TICKET_DELETE', 'ticket/deleteUserTicket');
+
+define('ROUTE_ADMIN_ALL_PHOTOGRAPHY', 'admin/photographyAll');
+define('ROUTE_ADMIN_PHOTOGRAPHY_VIEW_ALL', 'admin/photography/view');
+define('ROUTE_ADMIN_PHOTOGRAPHY_EDIT', 'admin/photographyEdit');
+define('ROUTE_ADMIN_PHOTOGRAPHY_DELETE', 'photography/delete');
+
+define('ROUTE_ADMIN_TICKET_EDIT', 'admin/ticketEdit');
+define('ROUTE_ADMIN_TICKET_VIEW', 'admin/ticket/edit');
+define('ROUTE_ADMIN_TICKET_UPDATE', 'ticket/update');
+define('ROUTE_ADMIN_TICKET_DELETE', 'ticket/delete');
+
+define('ROUTE_PAGES_LOGIN_CONTROLLER', '/page/login');
+define('ROUTE_PAGES_LOGIN_VIEW', '/pages/login');
+define('ROUTE_PHOTOGRAPHY_STORE', 'photography/store');
+define('ROUTE_PHOTOGRAPHY_UPDATE', 'photography/update');
+
+define('MEDIA_PATH', 'public/assets/images/');
+define('MEDIA_PATH_AVATAR', 'public/assets/images/avatars/');
+
