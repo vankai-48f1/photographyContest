@@ -10,8 +10,8 @@
 
                 <div class="hd__nav">
                     <ul class="hd__menu">
-                        <li><a href="#">Bình chọn</a></li>
-                        <li><a href="#">Profile</a></li>
+                        <li><a href="#about-us">About us</a></li>
+                        <li><a href="/page/submission">Submission</a></li>
                         <li><a href="/page/login">Sign in</a></li>
                     </ul>
                 </div>
@@ -51,7 +51,7 @@
         </div>
     <?php } ?>
 </section>
-<section class="about-us">
+<section class="about-us" id="about-us">
     <div class="pt-container">
         <div class="font-size-full">
             <h2 class="about-us__title font-second-hairline-title">About Us</h2>

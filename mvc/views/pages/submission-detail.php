@@ -14,8 +14,8 @@
 
                     <div class="hd__nav">
                         <ul class="hd__menu">
-                            <li><a href="#">Bình chọn</a></li>
-                            <li><a href="#">Profile</a></li>
+                            <li><a href="/">About us</a></li>
+                            <li><a href="/page/submission">Submission</a></li>
                             <li><a href="/page/login">Sign in</a></li>
                         </ul>
                     </div>

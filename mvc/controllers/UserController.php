@@ -35,10 +35,10 @@ class UserController extends Controller
             $this->render('pages/login', ['login']);
             exit();
         }
-        
+
         //Check for user/password
         if ($this->userModel->findUserByEmail($data['email'])) {
-            
+
             //User Found
             $loggedInUser = $this->userModel->login($data['email'], $data['password']);
 
@@ -97,7 +97,7 @@ class UserController extends Controller
             flash("login", "Please fill out all inputs", "", "message-error mt-5");
             redirect(ROUTE_PAGES_LOGIN_CONTROLLER);
         }
-        
+
         // Validate repeat password
         if ($data['password'] != trim($_POST['repeat_password'])) {
             flash("login", "Repeat incorrect password.", "", "message-error mt-5");
@@ -111,8 +111,8 @@ class UserController extends Controller
         }
 
         if ($this->userModel->addInformation($data)) {
-            popupSuccess("modal_success", "Successful account creation.");
-            redirect("/");
+            popupSuccess("modal_success", "Successful account creation. Please login.");
+            redirect("/page/login");
         } else {
             flash("login", "ERROR", "", "message-error mt-5");
             redirect(ROUTE_PAGES_LOGIN_CONTROLLER);
@@ -125,23 +125,39 @@ class UserController extends Controller
             flash("login", "Bạn phải đăng nhập trước khi vote.", "", "message-error mt-5");
             redirect(ROUTE_PAGES_LOGIN_CONTROLLER);
         }
-        
+
         $user = $this->userSession();
 
         $data = array(
             'user_id' => $user->id,
             'photography_id' => (int)$id
         );
-        
-        
-        if ($this->userModel->submission($data)) {
-            $photography = new Photography();
-            $photographyItem = $photography->getItemPhotography($id);
-            popupSuccess("modal_success", "Bạn đã bình chọn cho $photographyItem->name thành công.");
-            redirect("/");
+
+        // Validate time vote
+        $current_time = (int)strtotime(date('Y-m-d H:i:s', time()));
+        $start_time = (int)strtotime('2022-06-27 00:00:00');
+        $end_time = (int)strtotime('2022-07-01 00:00:00');
+
+        if ($current_time < (int)strtotime('2022-06-25 14:50:00')) {
+            // ngày mở
+            popupSuccess("modal_success", "Cổng bình chọn được mở vào ngày 27/06/2022. Xin bình chọn lại sau khoảng thời gian trên.", "text-white bg-info");
+            redirect("/page/submissionDetail/$id");
+        } elseif ($current_time > (int)strtotime('2022-06-25 14:55:00')) {
+            // ngày đóng
+            popupSuccess("modal_success", "Cổng bình chọn đã đóng vào ngày 30/06/2022.", "text-white bg-danger");
+            redirect("/page/submissionDetail/$id");
         } else {
-            popupSuccess("modal_success", "Chỉ được bình chọn một lần.", ' text-white bg-danger');
-            redirect("/");
+            // khoảng thời gian được bình chọn
+            if ($this->userModel->submission($data)) {
+                $photography = new Photography();
+                $photographyItem = $photography->getItemPhotography($id);
+
+                popupSuccess("modal_success", "Bạn đã bình chọn cho $photographyItem->name thành công.");
+                redirect("/page/submissionDetail/$id");
+            } else {
+                popupSuccess("modal_success", "Chỉ được bình chọn một lần.", ' text-white bg-danger');
+                redirect("/page/submissionDetail/$id");
+            }
         }
     }
 }

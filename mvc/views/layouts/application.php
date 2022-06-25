@@ -6,7 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><?php echo in_array("home", $data) ? "O Photography Contest" : "Admin" ?></title>
-
+    
+    <meta property="og:title" content="...." />
+    <meta property="og:description" content="..." />
+    <meta property="og:image" content="http://o.lofficielvietnam.com/ORIENTAL-BEAUTY.jpg" />
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/public/assets/vendor/bootstrap/css/bootstrap.min.css">
 

@@ -14,8 +14,8 @@
 
                     <div class="hd__nav">
                         <ul class="hd__menu">
-                            <li><a href="#">Bình chọn</a></li>
-                            <li><a href="#">Profile</a></li>
+                            <li><a href="/">About us</a></li>
+                            <li><a href="/page/submission">Submission</a></li>
                             <li><a href="/page/login">Sign in</a></li>
                         </ul>
                     </div>
@@ -61,18 +61,18 @@
                         foreach ($photographyAll as $photography) {
                         ?>
                             <div class="submission__item">
-                                <a href="page/submissionDetail/<?php echo $photography->id ?>" class="submission__item-thumb-link">
+                                <a href="/page/submissionDetail/<?php echo $photography->id ?>" class="submission__item-thumb-link">
                                     <div class="submission__item-thumb">
                                         <img src="<?php echo DIRECTORY_SEPARATOR . MEDIA_PATH_AVATAR . $photography->avatar ?>" alt="">
                                     </div>
                                 </a>
                                 <div class="submission__item-desc">
-                                    <a href="page/submissionDetail/<?php echo $photography->id ?>">
+                                    <a href="/page/submissionDetail/<?php echo $photography->id ?>">
                                         <div class="submission__item-name"><?php echo $photography->image_name ?></div>
                                         <div class="submission__item-applicant"><?php echo $photography->name ?></div>
                                         <div class="submission__item-vote-num"><?php echo $photography->vote ?> Votes</div>
                                     </a>
-                                    <a href="page/submissionDetail/<?php echo $photography->id ?>" class="submission__item-link"><span>More</span><img src="<?php echo DIRECTORY_SEPARATOR . MEDIA_PATH ?>arrow-right-orange.png" alt=""></a>
+                                    <a href="/page/submissionDetail/<?php echo $photography->id ?>" class="submission__item-link"><span>More</span><img src="<?php echo DIRECTORY_SEPARATOR . MEDIA_PATH ?>arrow-right-orange.png" alt=""></a>
                                 </div>
                             </div>
                         <?php } ?>

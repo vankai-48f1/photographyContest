@@ -90,6 +90,7 @@ class User
 
     public function submission($data)
     {
+        
         if ($this->checkVote($data['user_id'])) {
             return false;
         }
@@ -114,7 +115,7 @@ class User
         $this->db->bind(':user_id', $userId);
 
         $vote = $this->db->single();
-
+        
         return $vote;
     }
 }
