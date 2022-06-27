@@ -138,11 +138,11 @@ class UserController extends Controller
         $start_time = (int)strtotime('2022-06-27 00:00:00');
         $end_time = (int)strtotime('2022-07-01 00:00:00');
 
-        if ($current_time < (int)strtotime('2022-06-25 14:50:00')) {
+        if ($current_time < $start_time) {
             // ngày mở
             popupSuccess("modal_success", "Cổng bình chọn được mở vào ngày 27/06/2022. Xin bình chọn lại sau khoảng thời gian trên.", "text-white bg-info");
             redirect("/page/submissionDetail/$id");
-        } elseif ($current_time > (int)strtotime('2022-06-25 14:55:00')) {
+        } elseif ($current_time > $end_time) {
             // ngày đóng
             popupSuccess("modal_success", "Cổng bình chọn đã đóng vào ngày 30/06/2022.", "text-white bg-danger");
             redirect("/page/submissionDetail/$id");

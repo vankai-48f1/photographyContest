@@ -112,21 +112,22 @@
 
     <div class="countdown__content pt-container">
         <div class="countdown__content-inner">
+            <div class="countdown__end-time-ct" style="display: none;">Thời gian bình chọn đã kết thúc.</div>
             <div class="countdown__group">
                 <span class="countdown__time">
-                    <span class="countdown__time-day">3</span>
+                    <span class="countdown__time-day" id="days">3</span>
                     <span class="countdown__time-label">Ngày</span>
                 </span>
                 <span class="countdown__time">
-                    <span class="countdown__time-hour">10</span>
+                    <span class="countdown__time-hour" id="hours">10</span>
                     <span class="countdown__time-label">Giờ</span>
                 </span>
                 <span class="countdown__time">
-                    <span class="countdown__time-minute">08</span>
+                    <span class="countdown__time-minute" id="minutes">08</span>
                     <span class="countdown__time-label">Phút</span>
                 </span>
                 <span class="countdown__time countdown__time--second">
-                    <span class="countdown__time-second">45</span>
+                    <span class="countdown__time-second" id="seconds">45</span>
                     <span class="countdown__time-label">Giây</span>
                 </span>
             </div>

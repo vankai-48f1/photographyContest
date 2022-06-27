@@ -341,6 +341,13 @@ h6 {
   text-transform: uppercase;
 }
 
+.countdown__end-time-ct {
+    font-size: 3rem;
+    color: #e77019;
+    font-family: var(--font-prm-regular-i);
+    text-transform: uppercase;
+}
+
 .submission__main {
   padding-bottom: 12rem;
 }

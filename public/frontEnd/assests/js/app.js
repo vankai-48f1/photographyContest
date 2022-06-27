@@ -63,43 +63,33 @@
         }]
     });
 
-    // $('.submission-detail__slider-nav')
-    //     .on('init', function (event, slick) {
-    //         $('.submission-detail__slider-nav .slick-slide.slick-current').addClass('is-active');
-    //     })
-    //     .slick({
-    //         slidesToShow: 4,
-    //         slidesToScroll: 4,
-    //         dots: false,
-    //         arrows: false,
-    //         focusOnSelect: false,
-    //         infinite: false,
-    //         responsive: [{
-    //             breakpoint: 1024,
-    //             settings: {
-    //                 slidesToShow: 3,
-    //                 slidesToScroll: 3,
-    //             }
-    //         }, {
-    //             breakpoint: 640,
-    //             settings: {
-    //                 slidesToShow: 2,
-    //                 slidesToScroll: 2,
-    //             }
-    //         }]
-    //     });
+    (function () {
+        const second = 1000,
+            minute = second * 60,
+            hour = minute * 60,
+            day = hour * 24;
 
-    // $('.submission-detail__slider-single').on('afterChange', function (event, slick, currentSlide) {
-    //     $('.submission-detail__slider-nav').slick('slickGoTo', currentSlide);
-    //     var currrentNavSlideElem = '.submission-detail__slider-nav .slick-slide[data-slick-index="' + currentSlide + '"]';
-    //     $('.submission-detail__slider-nav .slick-slide.is-active').removeClass('is-active');
-    //     $(currrentNavSlideElem).addClass('is-active');
-    // });
+        //end
+        let dayEnd = '06/28/2022';
 
-    // $('.submission-detail__slider-nav').on('click', '.slick-slide', function (event) {
-    //     event.preventDefault();
-    //     var goToSingleSlide = $(this).data('slick-index');
+        const countDown = new Date(dayEnd).getTime(),
+            x = setInterval(function () {
 
-    //     $('.submission-detail__slider-single').slick('slickGoTo', goToSingleSlide);
-    // });
+                const now = new Date().getTime(),
+                    distance = countDown - now;
+
+                document.getElementById("days").innerText = Math.floor(distance / (day)),
+                    document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+                    document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+                    document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+                //do something later when date is reached
+                if (distance < 0) {
+                    document.querySelector(".countdown__group").style.display = "none";
+                    document.querySelector(".countdown__end-time-ct").style.display = "block";
+                    clearInterval(x);
+                }
+                //seconds
+            }, 0)
+    }());
 })(jQuery)
