@@ -78,6 +78,22 @@ class Photography
         }
     }
 
+    public function updateData($data)
+    {
+        $this->db->query('UPDATE photography SET image_name=:image_name, name =:photography_name, credit_team = :credit_team, description = :description WHERE id=:id');
+        $this->db->bind(':id', $data['id']);
+        $this->db->bind(':image_name', $data['image_name']);
+        $this->db->bind(':photography_name', $data['photography_name']);
+        $this->db->bind(':credit_team', $data['credit_team']);
+        $this->db->bind(':description', $data['description']);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function lastInsertId()
     {
         return $this->db->lastInsertId();

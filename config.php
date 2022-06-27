@@ -12,7 +12,8 @@ define('ROUTE_USER_TICKET_DELETE', 'ticket/deleteUserTicket');
 
 define('ROUTE_ADMIN_ALL_PHOTOGRAPHY', 'admin/photographyAll');
 define('ROUTE_ADMIN_PHOTOGRAPHY_VIEW_ALL', 'admin/photography/view');
-define('ROUTE_ADMIN_PHOTOGRAPHY_EDIT', 'admin/photographyEdit');
+define('ROUTE_ADMIN_PHOTOGRAPHY_EDIT', 'photography/edit');
+define('ROUTE_ADMIN_PHOTOGRAPHY_VIEW_EDIT', 'admin/photography/edit');
 define('ROUTE_ADMIN_PHOTOGRAPHY_DELETE', 'photography/delete');
 
 define('ROUTE_ADMIN_TICKET_EDIT', 'admin/ticketEdit');

@@ -70,7 +70,7 @@
             day = hour * 24;
 
         //end
-        let dayEnd = '06/28/2022';
+        let dayEnd = '07/01/2022';
 
         const countDown = new Date(dayEnd).getTime(),
             x = setInterval(function () {
@@ -78,15 +78,15 @@
                 const now = new Date().getTime(),
                     distance = countDown - now;
 
-                document.getElementById("days").innerText = Math.floor(distance / (day)),
-                    document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
-                    document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
-                    document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+                $("#days").text(Math.floor(distance / (day))) 
+                    $("#hours").text(Math.floor((distance % (day)) / (hour)));
+                    $("#minutes").text(Math.floor((distance % (hour)) / (minute)))
+                    $("#seconds").text(Math.floor((distance % (minute)) / second))
 
                 //do something later when date is reached
                 if (distance < 0) {
-                    document.querySelector(".countdown__group").style.display = "none";
-                    document.querySelector(".countdown__end-time-ct").style.display = "block";
+                    $(".countdown__group").css('display','none');
+                    $(".countdown__end-time-ct").css('display','block');
                     clearInterval(x);
                 }
                 //seconds

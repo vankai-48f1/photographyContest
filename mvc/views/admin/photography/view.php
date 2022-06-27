@@ -41,7 +41,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="d-flex">
-                                                            <!-- <a href="< ?= '/' . ROUTE_ADMIN_TICKET_EDIT . '/' . $lottery->id ?>" class="edit btn btn-primary btn-xs mr-1" data-title="edit"><i class="fas fa-pen"></i></a> -->
+                                                            <a href="<?= '/' . ROUTE_ADMIN_PHOTOGRAPHY_EDIT . '/' . $photography->id ?>" class="edit btn btn-primary btn-xs mr-1" data-title="edit"><i class="fas fa-pen"></i></a>
                                                             <button data-delete="<?= '/' . ROUTE_ADMIN_PHOTOGRAPHY_DELETE . '/' . $photography->id ?>" class="btnConfirmDelete delete btn btn-danger btn-xs" data-toggle="modal" data-target="#modalConfirmDelete"><i class="fas fa-trash-alt"></i></button>
                                                         </div>
                                                     </td>

@@ -12,19 +12,33 @@ class PhotographyController extends Controller
         $this->photography = new Photography;
     }
 
+    public function edit($id) {
+        $this->issetUserAdmin();
+
+        $data = ['admin'];
+        $data['photography'] = $this->photography->getItemPhotography($id);
+
+        if($data['photography']) {
+        return $this->render(ROUTE_ADMIN_PHOTOGRAPHY_VIEW_EDIT, $data);
+        }
+        else {
+            popupSuccess("modal_success", "Không tìm thấy bộ ảnh !", "text-white bg-danger");
+            redirect("/" . ROUTE_ADMIN_ALL_PHOTOGRAPHY);
+        }
+    }
+
     public function store()
     {
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING); // filter and validate mutiple value request
-        
+        // $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING); // filter and validate mutiple value request
+
         $data = [
             'avatar'             => $_FILES['avatar'],
             'detail_image'       => $_FILES['detail_image'],
             'image_name'         => trim($_POST['image_name']),
             'photography_name'   => trim($_POST['photography_name']),
-            'credit_team'        => trim($_POST['credit_team']),
-            'description'        => trim($_POST['description'])
+            'credit_team'        => htmlspecialchars($_POST['credit_team']),
+            'description'        => htmlspecialchars($_POST['description'])
         ];
-
 
         // Validate empty
         if (empty($data['avatar']) || empty($data['detail_image']) || empty($data['image_name']) || empty($data['photography_name'])) {
@@ -53,12 +67,32 @@ class PhotographyController extends Controller
         }
     }
 
-    public function delete($id = [])
-    {
-        $lottery = new Photography();
+    public function update($id) {
+        $this->issetUserAdmin();
         
-        if ($lottery->deletePhoto($id)) {
-            popupSuccess("modal_success", "Ticket has been deleted !", "text-success");
+        // $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        // var_dump(htmlspecialchars($_POST['credit_team']));die;
+
+        $data = [
+            'id'                 => $id,
+            'image_name'         => trim($_POST['image_name']),
+            'photography_name'   => trim($_POST['photography_name']),
+            'credit_team'        => htmlspecialchars($_POST['credit_team']),
+            'description'        => htmlspecialchars($_POST['description']), 
+        ];        
+        
+        if ($this->photography->updateData($data)) {
+            popupSuccess("modal_success", "Cập nhật thành công !", "text-success");
+            redirect("/" . ROUTE_ADMIN_ALL_PHOTOGRAPHY);
+        } else {
+            redirect("/" . ROUTE_ADMIN_ALL_PHOTOGRAPHY);
+        }
+    }
+
+    public function delete($id = [])
+    {        
+        if ($this->photography->deletePhoto($id)) {
+            popupSuccess("modal_success", "Photography has been deleted !", "text-success");
             redirect("/" . ROUTE_ADMIN_ALL_PHOTOGRAPHY);
         } else {
             redirect("/" . ROUTE_ADMIN_ALL_PHOTOGRAPHY);

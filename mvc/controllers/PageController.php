@@ -37,8 +37,11 @@ class PageController extends Controller
         $data = ['home'];
         $data['photography'] = $photogaphyItem;
 
-        // var_dump($photogaphyItem);die;
-
-        $this->render('pages/submission-detail', $data);
+        if($data['photography']) {
+            $this->render('pages/submission-detail', $data);
+        } else {
+            popupSuccess("modal_success", "Không tìm thấy bộ ảnh !", "text-white bg-danger");
+            redirect("/");
+        }
     }
 }

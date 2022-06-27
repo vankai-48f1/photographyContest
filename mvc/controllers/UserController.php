@@ -147,15 +147,21 @@ class UserController extends Controller
             popupSuccess("modal_success", "Cổng bình chọn đã đóng vào ngày 30/06/2022.", "text-white bg-danger");
             redirect("/page/submissionDetail/$id");
         } else {
-            // khoảng thời gian được bình chọn
-            if ($this->userModel->submission($data)) {
-                $photography = new Photography();
-                $photographyItem = $photography->getItemPhotography($id);
+            $photography = new Photography();
+            $photographyItem = $photography->getItemPhotography($id);
 
-                popupSuccess("modal_success", "Bạn đã bình chọn cho $photographyItem->name thành công.");
+            // khoảng thời gian được bình chọn
+            if($this->userModel->checkVoted($data['user_id'], $data['photography_id'])) {
+                popupSuccess("modal_success", "Chỉ được bình chọn cho $photographyItem->name một lần.", 'text-white bg-danger');
+                redirect("/page/submissionDetail/$id");
+            }
+
+            if ($this->userModel->submission($data)) {
+
+                popupSuccess("modal_success", "Bình chọn cho $photographyItem->name thành công.");
                 redirect("/page/submissionDetail/$id");
             } else {
-                popupSuccess("modal_success", "Chỉ được bình chọn một lần.", ' text-white bg-danger');
+                popupSuccess("modal_success", "Đã có lỗi xảy ra.", ' text-white bg-danger');
                 redirect("/page/submissionDetail/$id");
             }
         }

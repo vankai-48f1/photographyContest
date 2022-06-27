@@ -90,11 +90,6 @@ class User
 
     public function submission($data)
     {
-        
-        if ($this->checkVote($data['user_id'])) {
-            return false;
-        }
-
         $this->db->query('INSERT INTO submission (user_id, photography_id, date)
         VALUES (:user_id, :photography_id, :date)');
 
@@ -109,13 +104,14 @@ class User
         }
     }
 
-    public function checkVote($userId)
+    public function checkVoted($userId, $photography_id)
     {
-        $this->db->query('SELECT * FROM submission WHERE user_id = :user_id');
+        $this->db->query('SELECT * FROM submission WHERE user_id = :user_id AND photography_id =:photography_id');
         $this->db->bind(':user_id', $userId);
+        $this->db->bind(':photography_id', $photography_id);
 
         $vote = $this->db->single();
-        
+
         return $vote;
     }
 }

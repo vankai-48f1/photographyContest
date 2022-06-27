@@ -87,7 +87,7 @@
                         <div class="col-md-7 col-xs-12">
                             <div class="submission-detail__credit-ct">
                                 <div class="submission-detail__credit-title">Credit Team</div>
-                                <div class="submission-detail__credit-title"><?php echo $photography->credit_team ?></div>
+                                <div class="submission-detail__credit-title"><?php echo htmlspecialchars_decode($photography->credit_team) ?></div>
                             </div>
                         </div>
                         <div class="col-md-5 col-xs-12">
@@ -104,7 +104,7 @@
                         <div class="col-md-7 col-xs-12">
                             <div class="submission-detail__main-ct">
                                 <div class="submission-detail__main-desc">
-                                    <strong>Ý nghĩa: </strong><?php echo $photography->description ?>
+                                    <strong>Ý nghĩa: </strong><?php  echo htmlspecialchars_decode( $photography->description) ?>
                                 </div>
                             </div>
                         </div>

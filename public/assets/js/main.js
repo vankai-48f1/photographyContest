@@ -10,7 +10,7 @@
     jQuery(document).ready(function ($) {
 
         var idFormActive = window.location.hash;
-        
+
         $('.photography-form .nav li a').on('click', function () {
             var tabActive = $(this).attr('aria-controls');
 
@@ -138,5 +138,25 @@
         $('.navber-front__btn-close').on('click', function () {
             $('.navbar-front__nav-wrap').removeClass('menubarshow')
         })
+
+        // format value
+        $('#form-import').on('submit', function (e) {
+            // e.preventDefault();
+            var creaditTeamContent = $('.creadit-team-content').html();
+            var descriptionContent = $('.description-content').html();
+
+            // $(this).find('textarea[name="credit_team"]').val(JSON.stringify(creaditTeamContent));
+            // $(this).find('textarea[name="description"]').val(JSON.stringify(descriptionContent));
+            var wrapperCreaditTeam= `<div>${creaditTeamContent}</div>`;
+            var wrapperdescription= `<div>${descriptionContent}</div>`;
+
+            // wrapperCreaditTeam.innerHTML= creaditTeamContent;
+            // wrapperdescription.innerHTML= descriptionContent;
+            
+            $(this).find('input[name="credit_team"]').val(wrapperCreaditTeam);
+            $(this).find('input[name="description"]').val(wrapperdescription);
+            console.log($(this).find('input[name="credit_team"]').val(), $(this).find('input[name="description"]').val());
+        })
+
     })
 })(jQuery)
