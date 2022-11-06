@@ -64,6 +64,7 @@
                                     </table>
                                 </div>
                             </div>
+                            <?php include_once('mvc/views/pagination.php') ?>
                         </div>
                     </div>
                 </div>

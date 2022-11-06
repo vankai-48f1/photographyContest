@@ -38,12 +38,11 @@ class AdminController extends Controller
 
         array_push($data, 'admin', 'dashboard');
         
-        $data['topPhotoSubmission'] = $topPhotoSubmission;
-        // $data['per_page'] = !empty($_GET['per_page']) ? $_GET['per_page'] : 10;
-        // $data['current_page'] = !empty($_GET['page']) ? $_GET['page'] : 1;
-        // $data['total_page'] = ceil(count($userTickets) / $data['per_page']);
-        // $ticketPaginate = $paginate->paginateUserTickets($data);
-        // $data['lottery'] = $ticketPaginate;
+        $data['per_page'] = !empty($_GET['per_page']) ? $_GET['per_page'] : 2;
+        $data['current_page'] = !empty($_GET['page']) ? $_GET['page'] : 1;
+        $data['total_page'] = ceil(count($topPhotoSubmission) / $data['per_page']);
+        $photographyPaginate = $paginate->paginatePhotography($data);
+        $data['topPhotoSubmission'] = $photographyPaginate;
 
         $this->render(ROUTE_ADMIN_DASHBOARD, $data);
     }
@@ -66,7 +65,7 @@ class AdminController extends Controller
         $photographyAll = $photography->getAll();
 
         $data = ['admin'];
-        $data['per_page'] = !empty($_GET['per_page']) ? $_GET['per_page'] : 10;
+        $data['per_page'] = !empty($_GET['per_page']) ? $_GET['per_page'] : 5;
         $data['current_page'] = !empty($_GET['page']) ? $_GET['page'] : 1;
         $data['total_page'] = ceil(count($photographyAll) / $data['per_page']);
 

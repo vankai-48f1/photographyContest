@@ -9,7 +9,7 @@ class HomeController extends Controller
     function index()
     {
         $photogaphy = new Photography();
-        $photogaphyAll = $photogaphy->getLatestPhotography();
+        $photogaphyAll = $photogaphy->getTopPhotoSubmission();
         
         $data = ['home'];
         $data['photography'] = $photogaphyAll;
