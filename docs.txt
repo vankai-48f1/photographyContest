@@ -8,3 +8,4 @@ Khách quét mã QR sẽ hiện ra 1 trang con để khách đăng ký thông ti
     1.5 Giới tính:
     1.6 Mã số vé số tham gia quay thưởng:
     1.7 Địa điểm quán tham gia chương trình:
+3. Site http://o.lofficielvietnam.com/
